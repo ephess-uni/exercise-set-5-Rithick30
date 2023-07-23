@@ -21,6 +21,10 @@ if __name__ == "__main__":
     INFILE = root_dir / "data" / "ex_5_2-data.csv"
     OUTFILE = root_dir / "outputs" / "ex_5_2-processed.csv"
 
-    # Complete the data processing steps using numpy here.
+    l1 = np.loadtxt(INFILE)
 
-    # Save the output to OUTFILE using numpy routines.
+    # TODO: remove the mean from l1
+    l1=l1-l1.mean()
+    y=l1.std()
+    processed=l1/y
+    np.savetxt(OUTFILE, processed, fmt='%.2e')
