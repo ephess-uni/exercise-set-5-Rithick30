@@ -5,6 +5,7 @@ except ImportError:
     from ex_5_0 import line_count
 import argparse
 
+
 def main(infile):
     """Call line_count with the infile argument."""
     line_count(infile)
@@ -17,9 +18,8 @@ if __name__ == "__main__":
     # Tests will run your command using a system call.
     # To test your program with arguments, run it from the command line
     # (see README.md for more details)
-    parser=argparse.ArgumentParser(
-    description='cli program input is filename')
-    parser.add_argument('infile',help='infile--')
-    args=parser.parse_args()
-    line_count(args.infile)
-
+    parser = argparse.ArgumentParser(description="This program prints the number of lines in infile.")
+    parser.add_argument('infile',help='provide file path',nargs='?')
+    args = parser.parse_args()
+    if args.infile:
+        main(args.infile)
